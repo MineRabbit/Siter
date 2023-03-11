@@ -1,0 +1,9 @@
+{% if latest_chairs_list %}
+    <ul>
+    {% for chairs in latest_chairs_list %}
+        <li><a href="{% url 'detail' chairs.id %}">{{ chairs.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No chairs are available.</p>
+{% endif %}

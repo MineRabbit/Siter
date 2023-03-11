@@ -1,0 +1,43 @@
+<h1> Sell your chair </h1>
+
+<form action="/chairs/sell/confirm/" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>Information</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <div>
+        <label for="seller-name">Your name<span class="formbuilder-required">*</span></label>
+        <input type="text"name="seller-name" maxlength="200" id="seller-name" required="required" aria-required="true">
+    </div>
+    <div>
+        <label for="seller-address">Address of the shop<span class="formbuilder-required">*</span></label>
+        <input type="text" name="seller-address" maxlength="200" id="seller-address" required="required" aria-required="true">
+    </div>
+    <div>
+        <label for="name">Name of the chair<span class="formbuilder-required">*</span></label>
+        <input type="text" name="name"maxlength="200" id="name" required="required" aria-required="true">
+    </div>
+    <div>
+        <label for="price">Price<span class="formbuilder-required">*</span></label>
+        <input type="number" name="price" min="0" id="price" required="required" aria-required="true">
+    </div>
+    <div>
+        <label for="wheel">Number of wheels</label>
+        <input type="number" name="wheel" id="wheel">
+    </div>
+    <div>
+        <label for="backrest">Backrest :</label>
+        <div>
+            <div>
+                <input name="backrest" id="backrest" value="Yes" type="radio">
+                <label for="backrest">Has a backrest</label>
+            </div>
+            <div class="formbuilder-radio">
+                <input name="backrest" id="backrest" value="No" type="radio">
+                <label for="backrest">Doesn't have a backrest</label>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<input type="submit" value="Sell">
+</form>

@@ -1,0 +1,18 @@
+<h1>{{ cha.name }}</h1>
+<h1>{{ cha.price }}€</h1>
+<h1>Has {{ cha.wheels }} wheels</h1>
+
+<!-- checks for cha.backrest (boolean value for chairs) to send a custom message depending on the value -->
+{% if cha.backrest %}
+    <h1>Has a backrest</h1>
+{%  else %}
+    <h1>Doesn't have a backrest</h1>
+{% endif %}
+
+<h1>Sold by {{ cha.owner_idowner.name }} at {{ cha.owner_idowner.address }}</h1>
+
+
+<form action="/chairs/{{ cha.id }}/buy" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Buy">
+</form>
